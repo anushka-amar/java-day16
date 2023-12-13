@@ -33,3 +33,22 @@ CREATE TABLE contacts(
    PRIMARY KEY (id)
 );
 Query OK, 0 rows affected (0.13 sec)
+
+
+--UC - 3
+--Insert into the table
+INSERT INTO contacts(first_name, last_name, address, city, zip, phone_number, email)VALUE
+          ('Jane', 'Doe', 'west-coast-lane', 'New York', '99456', 7784568721, 'janedoe@gmail.com'),
+          ('Peter', 'Smith', 'north-hill-view', 'cincinnati', '88254', 8947328167, 'petersmith@gmail.com');
+Query OK, 2 rows affected (0.03 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+--view the table
+SELECT * FROM contacts;
++----+------------+-----------+-----------------+------------+-------+--------------+----------------------+
+| id | first_name | last_name | address         | city       | zip   | phone_number | email                |
++----+------------+-----------+-----------------+------------+-------+--------------+----------------------+
+|  1 | Jane       | Doe       | west-coast-lane | New York   | 99456 |   7784568721 | janedoe@gmail.com    |
+|  2 | Peter      | Smith     | north-hill-view | cincinnati | 88254 |   8947328167 | petersmith@gmail.com |
++----+------------+-----------+-----------------+------------+-------+--------------+----------------------+
+2 rows in set (0.00 sec)
