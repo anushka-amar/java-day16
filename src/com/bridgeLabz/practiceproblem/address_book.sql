@@ -68,3 +68,9 @@ SELECT * FROM contacts;
 |  2 | Peter      | Smith     | north-hill-view | cincinnati | 88254 |   8947328167 | peters123@gmail.com |
 +----+------------+-----------+-----------------+------------+-------+--------------+---------------------+
 2 rows in set (0.00 sec)
+
+
+--UC - 5
+--deleting a contact from the list using person's name
+DELETE FROM contacts WHERE first_name = "Peter";
+Query OK, 1 row affected (0.03 sec)
