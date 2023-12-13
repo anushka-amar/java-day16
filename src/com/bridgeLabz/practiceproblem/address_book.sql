@@ -52,3 +52,19 @@ SELECT * FROM contacts;
 |  2 | Peter      | Smith     | north-hill-view | cincinnati | 88254 |   8947328167 | petersmith@gmail.com |
 +----+------------+-----------+-----------------+------------+-------+--------------+----------------------+
 2 rows in set (0.00 sec)
+
+
+--UC - 4
+--editing existing contact using name
+UPDATE contacts set email = "peters123@gmail.com" WHERE first_name="Peter" AND last_name="Smith";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+SELECT * FROM contacts;
++----+------------+-----------+-----------------+------------+-------+--------------+---------------------+
+| id | first_name | last_name | address         | city       | zip   | phone_number | email               |
++----+------------+-----------+-----------------+------------+-------+--------------+---------------------+
+|  1 | Jane       | Doe       | west-coast-lane | New York   | 99456 |   7784568721 | janedoe@gmail.com   |
+|  2 | Peter      | Smith     | north-hill-view | cincinnati | 88254 |   8947328167 | peters123@gmail.com |
++----+------------+-----------+-----------------+------------+-------+--------------+---------------------+
+2 rows in set (0.00 sec)
