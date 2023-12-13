@@ -76,22 +76,38 @@ DELETE FROM contacts WHERE first_name = "Peter";
 Query OK, 1 row affected (0.03 sec)
 
 SELECT * FROM contacts;
-+----+------------+-----------+-----------------+----------+-------+--------------+-------------------+
-| id | first_name | last_name | address         | city     | zip   | phone_number | email             |
-+----+------------+-----------+-----------------+----------+-------+--------------+-------------------+
-|  1 | Jane       | Doe       | west-coast-lane | New York | 99456 |   7784568721 | janedoe@gmail.com |
-+----+------------+-----------+-----------------+----------+-------+--------------+-------------------+
++----+------------+-----------+-----------------+---------+----------+-------+--------------+-------------------+
+| id | first_name | last_name | address         | city    | state    | zip   | phone_number | email             |
++----+------------+-----------+-----------------+---------+----------+-------+--------------+-------------------+
+|  1 | Jane       | Doe       | west-coast-lane | Chicago | Illinois | 99456 |   7784568721 | janedoe@gmail.com |
++----+------------+-----------+-----------------+---------+----------+-------+--------------+-------------------+
 1 row in set (0.00 sec)
 
 
 --UC - 6
 --*inserted one more contact to the table*
++----+------------+-----------+------------------+-----------+-----------+-------+--------------+-------------------+
+| id | first_name | last_name | address          | city      | state     | zip   | phone_number | email             |
++----+------------+-----------+------------------+-----------+-----------+-------+--------------+-------------------+
+|  1 | Jane       | Doe       | west-coast-lane  | Chicago   | Illinois  | 99456 |   7784568721 | janedoe@gmail.com |
+|  3 | Anushka    | Amar      | south-coast-lane | Hyderabad | Telangana | 99470 |   8969492195 | anushka@gmail.com |
++----+------------+-----------+------------------+-----------+-----------+-------+--------------+-------------------+
 --Retrieve Person belonging to a City or State from the Address Book
-SELECT first_name FROM contacts WHERE city = "New York";
+mysql> SELECT first_name FROM contacts WHERE city = "Chicago";
 +------------+
 | first_name |
 +------------+
 | Jane       |
-| Anushka    |
 +------------+
-2 rows in set (0.00 sec)
+1 row in set (0.00 sec)
+
+
+--UC - 7
+--Ability to understand the size of address book by City and State
+mysql> SELECT COUNT(*) FROM contacts WHERE city ="Chicago" OR city="Hyderabad";
++----------+
+| COUNT(*) |
++----------+
+|        2 |
++----------+
+1 row in set (0.00 sec)
