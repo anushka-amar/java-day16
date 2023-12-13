@@ -143,3 +143,14 @@ mysql> SELECT * FROM contacts;
 |  3 | Family       | Anushka    | Amar      | south-coast-lane | Hyderabad | Telangana | 99470 |   8969492195 | anushka@gmail.com |
 +----+--------------+------------+-----------+------------------+-----------+-----------+-------+--------------+-------------------+
 2 rows in set (0.00 sec)
+
+
+--UC - 10
+--get number of contact persons i.e. count by type
+mysql> SELECT COUNT(*) FROM contacts where contact_type = "Friends";
++----------+
+| COUNT(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
