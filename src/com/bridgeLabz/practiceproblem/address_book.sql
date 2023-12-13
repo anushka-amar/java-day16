@@ -17,3 +17,19 @@ mysql> show databases;
 | performance_schema |
 | sys                |
 +--------------------+
+
+
+--UC - 2
+--create a contacts table
+CREATE TABLE contacts(
+   id INT unsigned NOT NULL AUTO_INCREMENT,
+   first_name VARCHAR(150) NOT NULL,
+   last_name VARCHAR(150) NOT NULL,
+   address VARCHAR(50) NOT NULL,
+   city VARCHAR(50) NOT NULL,
+   zip VARCHAR(50) NOT NULL,
+   phone_number BIGINT NOT NULL,
+   email VARCHAR(150) NOT NULL,
+   PRIMARY KEY (id)
+);
+Query OK, 0 rows affected (0.13 sec)
