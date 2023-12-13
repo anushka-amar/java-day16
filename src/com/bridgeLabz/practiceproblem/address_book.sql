@@ -111,3 +111,15 @@ mysql> SELECT COUNT(*) FROM contacts WHERE city ="Chicago" OR city="Hyderabad";
 |        2 |
 +----------+
 1 row in set (0.00 sec)
+
+
+--UC - 8
+--retrieving contacts sorted alphabetically by person's name
+mysql> SELECT * FROM contacts ORDER BY first_name;
++----+------------+-----------+------------------+-----------+-----------+-------+--------------+-------------------+
+| id | first_name | last_name | address          | city      | state     | zip   | phone_number | email             |
++----+------------+-----------+------------------+-----------+-----------+-------+--------------+-------------------+
+|  3 | Anushka    | Amar      | south-coast-lane | Hyderabad | Telangana | 99470 |   8969492195 | anushka@gmail.com |
+|  1 | Jane       | Doe       | west-coast-lane  | Chicago   | Illinois  | 99456 |   7784568721 | janedoe@gmail.com |
++----+------------+-----------+------------------+-----------+-----------+-------+--------------+-------------------+
+2 rows in set (0.01 sec)
