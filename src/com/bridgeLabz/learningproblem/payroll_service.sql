@@ -160,3 +160,27 @@ Records: 0  Duplicates: 0  Warnings: 0
 mysql> ALTER TABLE employee_payroll ALTER address SET DEFAULT 'default_address';
 Query OK, 0 rows affected (0.03 sec)
 Records: 0  Duplicates: 0  Warnings: 0
+
+
+--UC - 9
+--ability to extend the table to have Basic Pay, Deductions, Taxable Pay, Income Tax, Net Pay
+mysql> ALTER TABLE employee_payroll RENAME COLUMN salary TO basic_pay;
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE employee_payroll ADD deductions Double NOT NULL AFTER basic_pay;
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE employee_payroll ADD taxable_pay Double NOT NULL AFTER deductions;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE employee_payroll ADD income_tax Double NOT NULL AFTER taxable_pay;
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE employee_payroll ADD net_pay Double NOT NULL AFTER income_tax;
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
