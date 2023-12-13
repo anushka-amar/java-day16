@@ -197,3 +197,60 @@ mysql> SELECT * FROM employee_payroll;
 
 --UC - 10
 --Draw the ER Diagram for Payroll Service DB
+
+
+--UC - 11
+--creating different tables each for employee, company, department and payroll
+--to demostrate the ER diagram
+
+--company table (one to many relationship with employee)
+mysql> CREATE TABLE company (
+    ->     company_id INT PRIMARY KEY,
+    ->     name VARCHAR(255) NOT NULL
+    -> );
+Query OK, 0 rows affected (0.09 sec)
+
+--department table (many to many relationship with employee)
+mysql> CREATE TABLE department (
+    ->     department_id INT PRIMARY KEY,
+    ->     name VARCHAR(255) NOT NULL
+    -> );
+Query OK, 0 rows affected (0.05 s
+
+--Employee table (Strong entity)
+mysql> -- Employee table
+mysql> CREATE TABLE employee (
+    ->     employee_id INT PRIMARY KEY,
+    ->     company_id INT,
+    ->     name VARCHAR(255) NOT NULL,
+    ->     phone_number VARCHAR(20),
+    ->     address VARCHAR(255),
+    ->     gender CHAR(1),
+    ->     start_date DATE,
+    ->     FOREIGN KEY (company_id) REFERENCES company(company_id)
+    -> );
+Query OK, 0 rows affected (0.09 sec)
+
+--payroll table (One to one relationship with employee)
+mysql> CREATE TABLE payroll (
+    ->     payroll_id INT PRIMARY KEY,
+    ->     employee_id INT UNIQUE,
+    ->     basic_pay INT,
+    ->     deductions INT,
+    ->     taxable_pay INT,
+    ->     income_tax INT,
+    ->     net_pay INT,
+    ->     start_date DATE,
+    ->     FOREIGN KEY (employee_id) REFERENCES employee(employee_id)
+    -> );
+Query OK, 0 rows affected (0.13 sec)
+
+-- EmployeeDepartment table for many-to-many relationship
+mysql> CREATE TABLE employee_department (
+    ->     employee_id INT,
+    ->     department_id INT,
+    ->     PRIMARY KEY (employee_id, department_id), --composite key
+    ->     FOREIGN KEY (employee_id) REFERENCES employee(employee_id), --specifies the emp_id in this table refers to primary key in another
+    ->     FOREIGN KEY (department_id) REFERENCES department(department_id)
+    -> );
+Query OK, 0 rows affected (0.12 sec)
