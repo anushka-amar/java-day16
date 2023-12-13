@@ -123,3 +123,23 @@ mysql> SELECT * FROM contacts ORDER BY first_name;
 |  1 | Jane       | Doe       | west-coast-lane  | Chicago   | Illinois  | 99456 |   7784568721 | janedoe@gmail.com |
 +----+------------+-----------+------------------+-----------+-----------+-------+--------------+-------------------+
 2 rows in set (0.01 sec)
+
+
+--UC - 9
+--adding type of contact in the contact list
+mysql> ALTER TABLE contacts ADD contact_type VARCHAR(10) NOT NULL AFTER id;
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> UPDATE contacts set contact_type = "Friends" WHERE first_name="Jane";
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM contacts;
++----+--------------+------------+-----------+------------------+-----------+-----------+-------+--------------+-------------------+
+| id | contact_type | first_name | last_name | address          | city      | state     | zip   | phone_number | email             |
++----+--------------+------------+-----------+------------------+-----------+-----------+-------+--------------+-------------------+
+|  1 | Friends      | Jane       | Doe       | west-coast-lane  | Chicago   | Illinois  | 99456 |   7784568721 | janedoe@gmail.com |
+|  3 | Family       | Anushka    | Amar      | south-coast-lane | Hyderabad | Telangana | 99470 |   8969492195 | anushka@gmail.com |
++----+--------------+------------+-----------+------------------+-----------+-----------+-------+--------------+-------------------+
+2 rows in set (0.00 sec)
