@@ -154,3 +154,10 @@ mysql> SELECT COUNT(*) FROM contacts where contact_type = "Friends";
 |        1 |
 +----------+
 1 row in set (0.00 sec)
+
+
+--UC - 11
+--ability to add person to both friends and family
+mysql> INSERT INTO contacts(contact_type, first_name, last_name, address, city, state, zip, phone_number, email)VALUE
+    -> ('Family', 'Peter', 'Smith', 'north-hill-view', 'Cincinnati', 'Ohio', '88254', 8947328167, 'petersmith@gmail.com');
+Query OK, 1 row affected (0.02 sec)
