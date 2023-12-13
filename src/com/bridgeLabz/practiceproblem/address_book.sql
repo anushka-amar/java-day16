@@ -74,3 +74,24 @@ SELECT * FROM contacts;
 --deleting a contact from the list using person's name
 DELETE FROM contacts WHERE first_name = "Peter";
 Query OK, 1 row affected (0.03 sec)
+
+SELECT * FROM contacts;
++----+------------+-----------+-----------------+----------+-------+--------------+-------------------+
+| id | first_name | last_name | address         | city     | zip   | phone_number | email             |
++----+------------+-----------+-----------------+----------+-------+--------------+-------------------+
+|  1 | Jane       | Doe       | west-coast-lane | New York | 99456 |   7784568721 | janedoe@gmail.com |
++----+------------+-----------+-----------------+----------+-------+--------------+-------------------+
+1 row in set (0.00 sec)
+
+
+--UC - 6
+--*inserted one more contact to the table*
+--Retrieve Person belonging to a City or State from the Address Book
+SELECT first_name FROM contacts WHERE city = "New York";
++------------+
+| first_name |
++------------+
+| Jane       |
+| Anushka    |
++------------+
+2 rows in set (0.00 sec)
