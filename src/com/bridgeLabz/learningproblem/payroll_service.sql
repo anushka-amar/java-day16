@@ -184,3 +184,16 @@ mysql> ALTER TABLE employee_payroll ADD net_pay Double NOT NULL AFTER income_tax
 Query OK, 0 rows affected (0.05 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
+mysql> SELECT * FROM employee_payroll;
++----+---------+--------------+---------+------------+--------+-----------+------------+-------------+------------+---------+------------+
+| id | name    | phone_number | address | department | gender | basic_pay | deductions | taxable_pay | income_tax | net_pay | start      |
++----+---------+--------------+---------+------------+--------+-----------+------------+-------------+------------+---------+------------+
+|  1 | Bill    |         NULL | NULL    |            | M      |   1000000 |          0 |           0 |          0 |       0 | 2018-01-03 |
+|  2 | Terisa  |         NULL | NULL    |            | F      |   5000000 |          0 |           0 |          0 |       0 | 2019-11-13 |
+|  3 | Charlie |         NULL | NULL    |            | M      |   3000000 |          0 |           0 |          0 |       0 | 2020-05-21 |
++----+---------+--------------+---------+------------+--------+-----------+------------+-------------+------------+---------+------------+
+3 rows in set (0.00 sec)
+
+
+--UC - 10
+--Draw the ER Diagram for Payroll Service DB
